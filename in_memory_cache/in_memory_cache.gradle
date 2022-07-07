@@ -1,0 +1,8 @@
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation Dependencies.koptional
+    implementation Dependencies.koptional_rxjava3
+
+    implementation Dependencies.rxJava3
+}

@@ -1,0 +1,27 @@
+package com.scgts.sctrace.base.model
+
+data class AssetRest(
+    val id: String,
+    val pipe_number: Int,
+    val heat_number: String,
+    val make_up_loss_in: Double?,
+    val length: Double,
+    val running_length: Double?,
+    val mill_work_number: String,
+    val mill_name: String,
+    val latest_rack_location_id: String?,
+    val grade_type: String,
+    val product_id: String,
+    val range: String,
+    val standard_weight_lbs_ft: Double,
+    val commodity: String,
+    val organization_name: String?,
+    val outer_diameter_in: Double,
+    val end_finish: String,
+    val project_id: String,
+    val ex_mill_date: String,
+    val tags: List<String>,
+    val latest_condition_id: String?,
+    val shipment_number: String?,
+    val contract_number: String,
+)

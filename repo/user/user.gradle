@@ -1,0 +1,12 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation Dependencies.kotlin
+    implementation Dependencies.rxJava3
+    implementation project(':base')
+    implementation project(':network')
+}
+
+sourceCompatibility = "11"
+targetCompatibility = "11"

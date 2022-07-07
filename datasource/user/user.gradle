@@ -1,0 +1,6 @@
+apply from: "$rootDir/${GradleTemplates.data_source}"
+
+dependencies {
+    implementation project(':repo:user')
+}
+

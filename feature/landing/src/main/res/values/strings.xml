@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tasks">Tasks</string>
+    <string name="unsynced_submissions_num">Unsynced submissions (%d)</string>
+    <string name="unsynced_submission_message">These submissions will automatically sync once you’re back online.</string>
+    <string name="ad_hoc_scan">Ad hoc scan</string>
+    <string name="reject_scan">Reject scan</string>
+    <string name="assets_updated_num">Assets updated (%d)</string>
+    <string name="unsynced_total_tally">%1$d JT / %2$.1f IN</string>
+    <string name="filter_and_sort">Filter &amp; sort</string>
+    <string name="sort_by">Sort by</string>
+    <string name="project">Project</string>
+    <string name="task">Task</string>
+    <string name="status">Status</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="delivery_date">Delivery date</string>
+    <string name="no_tasks_listed_yet">No tasks listed yet!</string>
+    <string name="refresh_your_list">Try refreshing your list or tap the bottom-right button to do a quick action.</string>
+    <string name="no_tasks_found">No tasks found!</string>
+    <string name="change_your_filter">Change your filter options to see other tasks.</string>
+    <string name="clear">Clear</string>
+    <string name="show_tasks">Show tasks (%d)</string>
+    <string name="task_progress_bar_title">Progress</string>
+    <string name="task_progress_bar_percent_complete_text">%1$.0f%% complete</string>
+    <string name="task_progress_last_updated">Updated %1$s</string>
+    <string name="order_details">Order details</string>
+    <string name="special_instructions">Special instructions</string>
+    <string name="asset_list">Asset list</string>
+    <string name="empty_task_detail_background_image_description">Empty Task Detail Background Image Description</string>
+    <string name="empty_task_detail_background_text">Select a task to see its details</string>
+    <string name="ad_hoc_action_fab_description">Ad Hoc Action Floating Action Button</string>
+    <string name="chevron_icon_description">Chevron Icon</string>
+</resources>

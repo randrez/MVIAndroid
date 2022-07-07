@@ -1,0 +1,84 @@
+apply plugin: "com.dynatrace.instrumentation"
+
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = "1.5.21"
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.0.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "com.apollographql.apollo:apollo-gradle-plugin:${Version.apollo}"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${Version.navigation}"
+        classpath "com.dynatrace.tools.android:gradle-plugin:${Version.dynatrace}"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle.kts files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+    }
+}
+
+//TODO: move out env vars to app center
+dynatrace {
+    configurations {
+        qa {
+            variantFilter("qa")
+            autoStart {
+                applicationId "26d02abc-1355-4ab1-bfa5-61790554ba16"
+                beaconUrl "https://bf51247sjc.bf.dynatrace.com/mbeacon"
+            }
+            userOptIn false
+            webRequests.enabled true
+        }
+
+        staging {
+            variantFilter("staging")
+            autoStart {
+                applicationId "07863511-9eac-422e-812c-d59e7b118820"
+                beaconUrl "https://bf51247sjc.bf.dynatrace.com/mbeacon"
+            }
+            userOptIn false
+            webRequests.enabled true
+        }
+
+        release {
+            variantFilter("release")
+            autoStart {
+                applicationId "7c1a2b68-9e7e-4a58-8c4e-6daa3955a90d"
+                beaconUrl "https://bf51247sjc.bf.dynatrace.com/mbeacon"
+            }
+            userOptIn false
+            webRequests.enabled true
+        }
+        debug {
+            autoStart {
+                applicationId "8e8cb8fe-a647-4800-b419-3b40776ea7c7"
+                beaconUrl "https://bf51247sjc.bf.dynatrace.com/mbeacon"
+            }
+            userOptIn false
+            webRequests.enabled true
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+subprojects {
+    tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+        kotlinOptions {
+            freeCompilerArgs += ['-module-name', project.path.replace(':', '')]
+        }
+    }
+}

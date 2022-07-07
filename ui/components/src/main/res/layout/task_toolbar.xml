@@ -1,0 +1,41 @@
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/ToolBarStyle.Event"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="0.9"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:fontFamily="@font/proximanova_semibold"
+        android:text="@string/tasks"
+        android:textColor="@color/n_900"
+        android:textSize="20sp" />
+
+    <ImageView
+        android:id="@+id/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="4dp"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_icon_profile" />
+
+    <include
+        android:id="@+id/icon_with_number"
+        layout="@layout/icon_with_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end" />
+
+    <ImageView
+        android:id="@+id/refresh"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingEnd="4dp"
+        android:layout_gravity="end"
+        android:src="@drawable/ic_buttons_icon_only_refresh" />
+
+</com.google.android.material.appbar.MaterialToolbar>

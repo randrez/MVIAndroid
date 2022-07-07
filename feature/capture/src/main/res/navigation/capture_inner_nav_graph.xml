@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/capture_inner_nav_graph"
+    app:startDestination="@id/captureCameraFragment">
+
+    <fragment
+        android:id="@+id/captureCameraFragment"
+        android:name="com.scgts.sctrace.capture.scan.CaptureCameraFragment"
+        android:label="ScanFragment">
+    </fragment>
+    <fragment
+        android:id="@+id/manualCaptureFragment"
+        android:name="com.scgts.sctrace.capture.manual.ManualCaptureFragment"
+        android:label="ManualCaptureFragment" />
+
+<!--    <fragment-->
+<!--        android:id="@+id/barcodeScanFragment"-->
+<!--        android:name="com.scgts.sctrace.capture.BarcodeScanFragment2"-->
+<!--        android:label="BarcodeScanFragment2" />-->
+</navigation>

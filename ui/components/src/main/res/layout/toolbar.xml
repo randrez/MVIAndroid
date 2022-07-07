@@ -1,0 +1,35 @@
+<com.google.android.material.appbar.MaterialToolbar xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/details_toolbar"
+    style="@style/ToolBarStyle.Event"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:alpha="0.9"
+    android:background="@color/dark_blue"
+    android:padding="16dp">
+
+    <ImageButton
+        android:id="@+id/toolbar_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="start"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_scgts_toolbar_close" />
+
+    <TextView
+        android:id="@+id/toolbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/proximanova_semibold"
+        android:text="@string/capture_screen_title"
+        android:textColor="@android:color/white"
+        android:textSize="24sp" />
+
+    <ImageButton
+        android:id="@+id/capture_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_scgts_toolbar_camera" />
+</com.google.android.material.appbar.MaterialToolbar>

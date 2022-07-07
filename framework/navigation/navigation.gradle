@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+android {
+    compileSdkVersion BuildVersion.compileSdk
+    buildToolsVersion BuildVersion.buildTools
+
+    defaultConfig {
+        minSdkVersion BuildVersion.minSdk
+        targetSdkVersion BuildVersion.targetSdk
+        versionCode BuildVersion.versionCode
+        versionName BuildVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        staging { }
+        qa { }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+    implementation Dependencies.constraintLayout
+    implementation Dependencies.androidMaterial
+    implementation Dependencies.appCompat
+    implementation Dependencies.navigation_fragment
+    implementation Dependencies.navigation_ui_ktx
+
+    implementation Dependencies.rxJava3
+
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.junitAndroidX
+    implementation project(':base')
+}

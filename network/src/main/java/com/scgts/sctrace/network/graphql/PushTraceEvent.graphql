@@ -1,0 +1,36 @@
+mutation pushTraceEvent(
+    $taskId: ID!,
+    $assetId: ID!,
+    $conditionId: ID,
+    $scannedAt: DateTime!,
+    $rackLocationId: ID,
+    $consumptionStatus: String,
+    $rejectReason: String,
+    $rejectComment: String,
+    $facilityId: ID!,
+    $tags: [String!],
+    $laserLength: Float,
+    $userId: ID!,
+    $userName: String!
+) {
+    pushTraceEventToDb(
+        input: {
+            task_id: $taskId,
+            asset_id: $assetId,
+            condition_id: $conditionId,
+            scanned_at: $scannedAt,
+            facility_location_id: $rackLocationId,
+            facility_id: $facilityId,
+            consumption_status: $consumptionStatus,
+            reject_reason: $rejectReason,
+            reject_comment: $rejectComment,
+            tags: $tags,
+            laser_tally_length: $laserLength,
+            scanner_user_id: $userId,
+            scanner_user_name: $userName
+        }
+    ) {
+        id
+        updated_at
+    }
+}

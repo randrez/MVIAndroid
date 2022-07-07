@@ -1,0 +1,9 @@
+apply from: "$rootDir/${GradleTemplates.feature}"
+
+dependencies {
+    implementation project(':repo:login')
+    implementation project(':repo:user')
+    implementation project(':repo:tasks')
+    implementation project(':repo:queue')
+    implementation project(':network')
+}

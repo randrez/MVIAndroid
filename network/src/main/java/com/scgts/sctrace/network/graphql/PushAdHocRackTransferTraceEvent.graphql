@@ -1,0 +1,24 @@
+mutation pushAdHocRackTransferTraceEvent(
+    $assetId: ID!,
+    $taskId: ID!,
+    $facilityId: ID!,
+    $rackLocationId: ID!,
+    $scannedAt: DateTime!,
+    $userId: ID!,
+    $userName: String!
+) {
+    adhocRackTransfer(
+        input: {
+            asset_id: $assetId,
+            task_id: $taskId,
+            facility_id: $facilityId,
+            facility_location_id: $rackLocationId,
+            scanned_at: $scannedAt,
+            scanner_user_id: $userId,
+            scanner_user_name: $userName
+        }
+    ) {
+        id
+        updated_at
+    }
+}

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/icon_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:layout_width="match_parent">
+
+    <ImageView
+        android:id="@+id/icon_image"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:paddingStart="0dp"
+        android:paddingEnd="8dp"
+        android:scaleType="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/data_title"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_calendar"/>
+
+    <TextView
+        android:id="@id/data_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/proximanova_medium"
+        android:lines="1"
+        android:textColor="@color/slate"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon_image"
+        app:layout_constraintTop_toTopOf="@id/icon_image"
+        tools:text="Delivery Date"/>
+
+    <TextView
+        android:id="@+id/data_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:fontFamily="@font/proximanova_regular"
+        android:lines="1"
+        android:textColor="@color/dark_blue"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="@id/data_title"
+        app:layout_constraintTop_toBottomOf="@id/data_title"
+        tools:text="WO08500" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

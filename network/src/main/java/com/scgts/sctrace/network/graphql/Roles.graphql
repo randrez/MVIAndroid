@@ -1,0 +1,8 @@
+query Roles {
+    project_roles {
+        id
+        roles {
+            id
+        }
+    }
+}

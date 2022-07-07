@@ -1,0 +1,10 @@
+mutation deleteTag($assetId: ID!, $tag: String!) {
+    deleteTag(
+        input: {
+            asset_id: $assetId,
+            code: $tag
+        }
+    ) {
+        was_deleted
+    }
+}

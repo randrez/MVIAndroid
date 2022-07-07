@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="project">Project</string>
+    <string name="arrival_date">Arrival date</string>
+    <string name="dispatch_date">Dispatch date</string>
+    <string name="starting_location">Starting location</string>
+    <string name="yard_name">Yard name</string>
+    <string name="quick_scan">Quick scan</string>
+    <string name="reject_scan">Reject scan</string>
+    <string name="inbound_from_mill">Inbound from mill</string>
+    <string name="inbound_from_well_site">Inbound from well site</string>
+    <string name="inbound_to_well">Inbound to well</string>
+    <string name="rig">Rig</string>
+    <string name="well_name">Well name</string>
+    <string name="start">Start</string>
+    <string name="dispatch">Dispatch</string>
+    <string name="dispatch_to_yard_button">Dispatch to yard</string>
+    <string name="dispatch_to_well_button">Dispatch to well</string>
+    <string name="type">Type</string>
+    <string name="from">From</string>
+    <string name="to">To</string>
+    <string name="project_hint">Choose project…</string>
+    <string name="yard_hint">Choose yard…</string>
+    <string name="well_hint">Choose well…</string>
+    <string name="rig_hint">Choose rig…</string>
+    <string name="location_hint">Choose location…</string>
+    <string name="yard">Yard</string>
+    <string name="ad_hoc_rack_transfer">Ad hoc rack transfer</string>
+    <string name="ic_pin_description">icon pin</string>
+    <string name="ic_location_description">icon location</string>
+</resources>

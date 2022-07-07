@@ -1,0 +1,22 @@
+<resources>
+    <string name="cancel">Cancel</string>
+    <string name="new_transfer">New Transfer</string>
+    <string name="edit_transfer">Edit Transfer</string>
+    <string name="create">Create</string>
+    <string name="save">Save</string>
+    <string name="transfer_location">Transfer location</string>
+    <string name="choose_location">Choose location…</string>
+    <string name="scanned_summary">Scanned summary</string>
+    <string name="back">Back</string>
+    <string name="transfer_details">Transfer details</string>
+    <string name="attributes">Attributes</string>
+    <string name="product">Product</string>
+    <string name="mill_work_no">Mill work no.</string>
+    <string name="asset_list">Asset list</string>
+    <string name="tally">Tally</string>
+    <string name="session_tally">Session tally</string>
+    <string name="total_run_length">Total run. length</string>
+    <string name="order">Order</string>
+    <string name="unexpected_product_challenge">Are you sure you want to submit this tally?</string>
+    <string name="unexpected_product_explanation">Some of the product types included in this tally were not expected for this order. Do you wish to proceed?</string>
+</resources>

@@ -1,0 +1,10 @@
+apply from: "$rootDir/${GradleTemplates.data_source}"
+
+dependencies {
+    implementation project(':auth')
+    implementation project(':repo:login')
+
+    implementation Dependencies.okhttp_logging
+    implementation Dependencies.apolloRx
+    implementation Dependencies.apolloRuntime
+}

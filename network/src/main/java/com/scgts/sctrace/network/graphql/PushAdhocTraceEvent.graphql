@@ -1,0 +1,26 @@
+mutation pushAdHocTraceEvent(
+    $assetId: ID!,
+    $conditionId: ID,
+    $scannedAt: DateTime!,
+    $rackLocationId: ID,
+    $tags: [String!],
+    $laserLength: Float,
+    $userId: ID!,
+    $userName: String!
+) {
+    adhocScan(
+        input: {
+            asset_id: $assetId,
+            condition_id: $conditionId,
+            scanned_at: $scannedAt,
+            facility_location_id: $rackLocationId,
+            tags: $tags,
+            laser_tally_length: $laserLength,
+            scanner_user_id: $userId,
+            scanner_user_name: $userName
+        }
+    ) {
+        id
+        asset_id
+    }
+}

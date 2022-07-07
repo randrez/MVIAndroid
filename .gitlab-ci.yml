@@ -1,0 +1,56 @@
+image: gradle:jdk11
+
+variables:
+  ANDROID_COMPILE_SDK: "30"
+  ANDROID_BUILD_TOOLS: "30.0.2"
+  ANDROID_SDK_TOOLS: "7302050"
+
+before_script:
+  - apt-get --quiet update --yes
+  - apt-get --quiet install --yes wget tar unzip lib32stdc++6 lib32z1
+  - wget --quiet --output-document=android-sdk.zip https://dl.google.com/android/repository/commandlinetools-linux-${ANDROID_SDK_TOOLS}_latest.zip
+  - unzip -d android-sdk-linux android-sdk.zip
+  - export ANDROID_HOME=$PWD/android-sdk-linux
+  - export PATH=$PATH:$PWD/android-sdk-linux/platform-tools/
+  - chmod +x ./gradlew
+  - set +o pipefail
+  - yes | android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --licenses
+  - android-sdk-linux/cmdline-tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platform-tools" "platforms;android-${ANDROID_COMPILE_SDK}" >/dev/null
+  - set -o pipefail
+
+stages:
+  - test
+  - build
+
+assembleDebug:
+  stage: build
+  tags:
+    - sctrace-stage-infra-runner-docker
+  only:
+    - master
+  script:
+    - ./gradlew assembleDebug --stacktrace
+    - |
+      curl \
+        -F token="${SLACK_CHANNEL_ACCESS_TOKEN}" \
+        -F channels="${SLACK_CHANNEL_ID}" \
+        -F initial_comment="Hello team! Here is the latest APK
+      Build Number: ${CI_COMMIT_SHORT_SHA}
+      Commit Message:
+      ---
+      ${CI_COMMIT_MESSAGE}
+      ---
+      " \
+        -F file=@app\/build\/outputs\/apk\/debug\/app-debug.apk \
+        https://slack.com/api/files.upload
+
+  artifacts:
+    paths:
+      - app/build/outputs/apk/debug
+
+debugTests:
+  stage: test
+  tags:
+    - sctrace-stage-infra-runner-docker
+  script:
+    - ./gradlew -Pci testDebugUnitTest --stacktrace

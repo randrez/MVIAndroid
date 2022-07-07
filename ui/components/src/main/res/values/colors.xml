@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#000000</color>
+    <color name="green">#73e0b3</color>
+    <color name="orange">#feb114</color>
+    <color name="y_500">#f69d36</color>
+    <color name="y_500_20">#33f69d36</color>
+    <color name="dark_red">#d2050b</color>
+    <color name="red">#FF6B70</color>
+    <color name="error">#ef181f</color>
+    <color name="dark_blue">#00263d</color>
+    <color name="blue">#2569be</color>
+    <color name="text_link">#0069c4</color>
+    <color name="slate">#526c7b</color>
+    <color name="n_950">#011627</color>
+    <color name="n_900_60">#9900263d</color>
+    <color name="n_900">#00263d</color>
+    <color name="n_500">#516b7a</color>
+    <color name="n_100_60">#a9b5bd</color>
+    <color name="n_100">#95a3ab</color>
+    <color name="n_060">#C1C7D0</color>
+    <color name="grey_light">#e0e5e7</color>
+    <color name="light_slate">#80d1e1ed</color>
+    <color name="transparent_grey">#99000000</color>
+    <color name="scgts_white">#f4f5f7</color>
+    <color name="light_gray">#ebeef0</color>
+    <color name="white">#ffffff</color>
+    <color name="grey_light_2">#d0d9e0</color>
+    <color name="yellow">#feb114</color>
+    <color name="green_20">#330492ab</color>
+    <color name="t_100">#6FD7E7</color>
+    <color name="p_200">#BC7DEF</color>
+</resources>

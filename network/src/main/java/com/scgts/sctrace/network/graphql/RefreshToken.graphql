@@ -1,0 +1,7 @@
+mutation refreshToken($oldRefreshToken: String!) {
+    refreshToken(old_refresh_token: $oldRefreshToken) {
+        access_token
+        refresh_token
+        expires_in
+    }
+}

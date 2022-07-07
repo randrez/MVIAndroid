@@ -1,0 +1,42 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'com.apollographql.apollo'
+
+repositories {
+    mavenCentral()
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+
+dependencies {
+    implementation Dependencies.rxJava3
+
+    implementation Dependencies.retrofitRxAdapter
+    implementation Dependencies.retrofit2
+    implementation Dependencies.retrofit_gsonConverter
+
+    implementation Dependencies.apolloRx
+    implementation Dependencies.apolloRuntime
+
+    implementation Dependencies.okhttp_logging
+
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+
+    implementation Dependencies.koin_core
+
+    implementation project(':base')
+    implementation project(':repo:login')
+}
+
+apollo {
+    generateKotlinModels.set(true)
+    graphqlSourceDirectorySet.srcDir("src/main/java/com/scgts/sctrace/network/graphql")
+    graphqlSourceDirectorySet.include("**/*.graphql")
+    graphqlSourceDirectorySet.exclude("**/schema.graphql")
+}
+

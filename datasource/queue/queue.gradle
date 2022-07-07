@@ -1,0 +1,11 @@
+apply from: "$rootDir/${GradleTemplates.data_source}"
+
+dependencies {
+    implementation project(':repo:queue')
+    implementation project(':repo:tasks')
+    implementation project(':ui:components')
+
+    implementation Dependencies.retrofit_gsonConverter
+    implementation Dependencies.threeTenBp
+    implementation com.dynatrace.tools.android.DynatracePlugin.agentDependency()
+}

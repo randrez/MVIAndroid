@@ -1,0 +1,5 @@
+apply from: "$rootDir/${GradleTemplates.feature}"
+
+dependencies {
+    implementation project(':repo:tasks')
+}

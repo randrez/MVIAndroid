@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/asset_cons_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="1" />
+
+    <ImageView
+        android:id="@+id/asset_cons_not_in_order_warning_indicator"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/ic_warning"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/asset_cons_number"
+        app:layout_constraintStart_toStartOf="@id/asset_cons_number"
+        app:layout_constraintTop_toBottomOf="@id/asset_cons_number" />
+
+    <TextView
+        android:id="@+id/asset_cons_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/proximanova_regular"
+        android:lines="1"
+        android:singleLine="true"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintEnd_toStartOf="@id/asset_cons_tally"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintStart_toEndOf="@id/asset_cons_number"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="9-5/8” 53.50# P110 R-" />
+
+    <TextView
+        android:id="@+id/asset_cons_heat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/asset_cons_name"
+        app:layout_constraintTop_toBottomOf="@id/asset_cons_name" />
+
+    <TextView
+        android:id="@+id/asset_cons_pipe_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@id/asset_cons_heat"
+        app:layout_constraintTop_toBottomOf="@id/asset_cons_heat" />
+
+    <TextView
+        android:id="@+id/asset_cons_tally"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintHorizontal_weight="1"
+        android:textColor="@color/dark_blue"
+        app:layout_constraintEnd_toStartOf="@id/asset_cons_status"
+        app:layout_constraintStart_toEndOf="@id/asset_cons_name"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="47.5" />
+
+    <TextView
+        android:id="@+id/asset_cons_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintHorizontal_weight="1"
+        android:background="@drawable/curved_rect"
+        android:fontFamily="@font/proximanova_medium"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingEnd="16dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        android:paddingStart="16dp"
+        android:textAllCaps="true"
+        android:textColor="@color/dark_blue"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/asset_cons_tally"
+        app:layout_constraintTop_toTopOf="@id/asset_cons_tally"
+        app:layout_constraintBottom_toBottomOf="@id/asset_cons_tally"
+        tools:backgroundTint="@color/green"
+        tools:text="Reject" />
+
+    <include
+        layout="@layout/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/asset_cons_pipe_number" />
+</androidx.constraintlayout.widget.ConstraintLayout>

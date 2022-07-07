@@ -1,0 +1,14 @@
+apply from: "$rootDir/${GradleTemplates.feature}"
+
+dependencies {
+    implementation project(':feature:assets')
+    implementation project(':feature:tablet')
+
+    implementation project(':repo:tasks')
+    implementation project(':repo:queue')
+
+    implementation Dependencies.koptional
+
+    implementation Dependencies.scandit
+    implementation Dependencies.scanditBarcode
+}

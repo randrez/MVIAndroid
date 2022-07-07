@@ -1,0 +1,13 @@
+apply from: "$rootDir/${GradleTemplates.data_source}"
+
+dependencies {
+    implementation project(':repo:tasks')
+    implementation project(':repo:user')
+    implementation project(':ui:components')
+
+    implementation Dependencies.threeTenBp
+    implementation Dependencies.room
+    implementation Dependencies.retrofit_gsonConverter
+
+}
+

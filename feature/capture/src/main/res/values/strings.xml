@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scan_mode_screen_title">Scan Mode</string>
+    <string name="manual_capture_tab_tag">By tag</string>
+    <string name="manual_capture_tab_attribute">By attribute</string>
+    <string name="add_tag">Add Tag</string>
+    <string name="find_asset_button_text">Find asset</string>
+    <string name="asset_not_found">Asset not found</string>
+    <string name="asset_not_found_manual">The tag is not associated with a known asset for the project. Please try another tag</string>
+    <string name="asset_not_found_scanned">The scanned tag is not associated with a known asset for the project. Please try another tag or use the manual traceability methods.</string>
+    <string name="total_tally">Total tally</string>
+    <string name="session_consumed">Session consumed</string>
+    <string name="session_rejected">Session rejected</string>
+    <string name="session_running_length">Session running length</string>
+    <string name="multiple_results_title">Multiple results</string>
+    <string name="multiple_results_desc">Multiple assets are associated with this tag. Select the correct asset.</string>
+    <string name="add_asset_success">Asset added successfully</string>
+</resources>

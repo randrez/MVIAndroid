@@ -1,0 +1,105 @@
+query Projects {
+    getMobileUserProjects{
+        id
+        name
+        uom_type
+        operating_party {
+            organization_name
+        }
+        mobile_orders {
+            id
+            order_type
+            project_id
+            expected_total_amount{
+                length
+                number_joints
+            }
+            delivery_date
+            description
+            to_location {
+                id
+                name
+            }
+            from_location {
+                id
+                name
+            }
+            special_instructions
+            expected_amounts {
+                id
+                order_id
+                length
+                product_id
+                product {
+                    calculated_product_description
+                }
+                number_joints
+                contract_id
+                shipment_number
+                condition_id
+                facility_location_id
+            }
+            dispatch_date
+            mobile_tasks {
+                id
+                created_at
+                mobile_status
+                task_type
+                trace_events {
+                    task_id
+                    asset_id
+                    facility_id
+                    longitude
+                    latitude
+                    updated_at
+                    consumption_status
+                    reject_reason
+                    reject_comment
+                    scanner_user_id
+                    scanner_user_name
+                }
+            }
+            well_section {
+                od_section {
+                    id
+                    section
+                }
+            }
+            dispatch_assets {
+                id
+            }
+            build_order_assets {
+                id
+            }
+        }
+        mills {
+            id
+            name
+            facility_type_id
+        }
+        yards {
+            id
+            name
+            facility_type_id
+            locations {
+                id
+                name
+            }
+        }
+        wells {
+            id
+            name
+        }
+        rigs {
+            id
+            name
+        }
+        condition_codes {
+            id
+            name
+            condition_code
+        }
+        itims_project_code_1
+        itims_project_code_2
+    }
+}

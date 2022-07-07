@@ -1,0 +1,12 @@
+apply from: "$rootDir/${GradleTemplates.feature}"
+apply plugin: 'kotlin-android'
+
+dependencies {
+    implementation project(':repo:tasks')
+    implementation project(':repo:user')
+    implementation project(':network')
+    implementation project(':feature:tablet')
+    implementation project(':feature:assets')
+    implementation project(':feature:login')
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+}

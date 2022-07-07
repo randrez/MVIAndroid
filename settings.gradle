@@ -1,0 +1,48 @@
+include ':app'
+
+include ':auth'
+include ':database'
+
+include ':datasource:tasks'
+include ':datasource:login'
+include ':datasource:user'
+include ':datasource:queue'
+
+include ':repo:tasks'
+include ':repo:login'
+include ':repo:user'
+include ':repo:queue'
+
+include ':feature:landing'
+include ':feature:login'
+include ':feature:task_summary'
+include ':feature:capture'
+include ':feature:assets'
+include ':feature:ad_hoc_action'
+include ':feature:see_details'
+include ':feature:settings'
+include ':feature:tablet'
+include ':feature:rack_transfer'
+
+include ':framework:mvi'
+include ':framework:baseView'
+include ':framework:navigation'
+include ':repo:queue'
+include ':datasource:queue'
+
+include ':base'
+include ':network'
+include ':in_memory_cache'
+include ':ui:components'
+
+def configureBuildFiles(ProjectDescriptor project) {
+    project.children.each {
+        child ->
+            if (child.name != "app") {
+                child.buildFileName = "${child.name}.gradle"
+                configureBuildFiles(child)
+            }
+    }
+}
+
+configureBuildFiles(rootProject)

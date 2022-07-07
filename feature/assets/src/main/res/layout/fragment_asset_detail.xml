@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/asset_back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="12dp"
+        android:background="@drawable/ic_chevron_left"
+        />
+    <TextView
+        android:id="@+id/asset_details_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/asset_back_button"
+        app:layout_constraintLeft_toLeftOf="@id/asset_back_button"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/proximanova_semibold"
+        android:textSize="13sp"
+        android:text="@string/asset_details"/>
+
+    <TextView
+        android:id="@+id/asset_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/asset_details_label"
+        app:layout_constraintLeft_toLeftOf="@id/asset_details_label"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginTop="15dp"
+        android:fontFamily="@font/proximanova_semibold"
+        android:textSize="20sp"
+        tools:text="9-5/8” 53.50# P110 R-3 NEW VAM SD SMLS "/>
+
+    <com.airbnb.epoxy.EpoxyRecyclerView
+        android:id="@+id/asset_detail_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/asset_description"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="12dp"
+        tools:itemCount="20"
+        tools:listitem="@layout/asset_detail_row" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

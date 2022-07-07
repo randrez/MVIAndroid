@@ -1,0 +1,32 @@
+mutation quickInboundTally(
+    $taskId: ID!,
+    $assetId: ID!,
+    $conditionId: ID,
+    $scannedAt: DateTime!,
+    $toLocationId: ID!,
+    $rackLocationId: ID,
+    $facilityId: ID!,
+    $tags: [String!],
+    $laserLength: Float,
+    $userId: ID!,
+    $userName: String!
+) {
+    quickInboundTally(
+        input: {
+            task_id: $taskId,
+            asset_id: $assetId,
+            condition_id: $conditionId,
+            scanned_at: $scannedAt,
+            to_location_id: $toLocationId,
+            facility_id: $facilityId,
+            facility_location_id: $rackLocationId,
+            tags: $tags,
+            laser_tally_length: $laserLength,
+            scanner_user_id: $userId,
+            scanner_user_name: $userName
+        }
+    ) {
+        id
+        updated_at
+    }
+}

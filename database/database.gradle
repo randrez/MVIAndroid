@@ -1,0 +1,61 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion BuildVersion.compileSdk
+    buildToolsVersion BuildVersion.buildTools
+
+    defaultConfig {
+        minSdkVersion BuildVersion.minSdk
+        targetSdkVersion BuildVersion.targetSdk
+        versionCode BuildVersion.versionCode
+        versionName BuildVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+
+        kapt {
+            arguments {
+                arg("room.schemaLocation", "$projectDir/schemas".toString())
+            }
+        }
+    }
+
+    buildTypes {
+        staging { }
+        qa { }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+    implementation Dependencies.room
+    implementation Dependencies.room_ktx
+    implementation Dependencies.room_rxjava3
+    kapt Dependencies.room_compiler
+
+    implementation Dependencies.retrofit_gsonConverter
+    implementation Dependencies.rxJava3
+    implementation Dependencies.koinAndroid
+
+    implementation Dependencies.threeTenBp
+
+    implementation project(':base')
+}

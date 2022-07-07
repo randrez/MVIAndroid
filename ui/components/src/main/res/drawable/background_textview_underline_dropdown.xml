@@ -1,0 +1,10 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:gravity="bottom">
+        <shape android:shape="rectangle">
+            <size android:height="1dp"/>
+            <solid android:color="@color/grey_light"/>
+        </shape>
+    </item>
+    <item android:width="24dp" android:height="24dp" android:gravity="right"
+          android:drawable="@drawable/ic_scgts_expand"/>
+</layer-list>

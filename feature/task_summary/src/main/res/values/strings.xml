@@ -1,0 +1,11 @@
+<resources>
+    <string name="unexpected_product_challenge">Are you sure you want to submit this tally?</string>
+    <string name="unexpected_product_explanation">Some of the product types included in this tally were not expected for this order. Do you wish to proceed?</string>
+    <string name="submitted">Submitted</string>
+    <string name="submit">Submit</string>
+    <string name="session_tally">Session tally</string>
+    <string name="order">Order</string>
+    <string name="see_details">See Details</string>
+    <string name="total_run_length">Total run. length</string>
+    <string name="total_tally">Total tally</string>
+</resources>

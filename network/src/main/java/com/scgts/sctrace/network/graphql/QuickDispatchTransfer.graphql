@@ -1,0 +1,34 @@
+mutation quickDispatchTransfer(
+    $taskId: ID!,
+    $assetId: ID!,
+    $conditionId: ID,
+    $scannedAt: DateTime!,
+    $rackLocationId: ID,
+    $facilityId: ID!,
+    $toLocationId: ID!,
+    $fromLocationId: ID!,
+    $dispatchDate: Date!,
+    $tags: [String!],
+    $userId: ID!,
+    $userName: String!
+) {
+    quickDispatchTransfer(
+        input: {
+            task_id: $taskId,
+            asset_id: $assetId,
+            condition_id: $conditionId,
+            scanned_at: $scannedAt,
+            to_location_id: $toLocationId,
+            from_location_id: $fromLocationId,
+            facility_id: $facilityId,
+            facility_location_id: $rackLocationId,
+            dispatch_date: $dispatchDate,
+            tags: $tags,
+            scanner_user_id: $userId,
+            scanner_user_name: $userName
+        }
+    ) {
+        id
+        updated_at
+    }
+}

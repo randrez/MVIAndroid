@@ -1,0 +1,29 @@
+mutation pushQuickRejectTraceEvent(
+    $assetId: ID!,
+    $taskId: ID!,
+    $scannedAt: DateTime!,
+    $consumptionStatus: String,
+    $rejectReason: String,
+    $rejectComment: String,
+    $tags: [String!],
+    $userId: ID!,
+    $userName: String!
+) {
+    quickReject(
+        input: {
+            task_id: $taskId,
+            asset_id: $assetId,
+            latitude: 0,
+            longitude: 0,
+            scanned_at: $scannedAt,
+            consumption_status: $consumptionStatus,
+            reject_reason: $rejectReason,
+            reject_comment: $rejectComment,
+            tags: $tags,
+            scanner_user_id: $userId,
+            scanner_user_name: $userName
+        }
+    ) {
+        id
+    }
+}

@@ -1,0 +1,81 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion BuildVersion.compileSdk
+    buildToolsVersion BuildVersion.buildTools
+
+    defaultConfig {
+        minSdkVersion BuildVersion.minSdk
+        targetSdkVersion BuildVersion.targetSdk
+        versionCode BuildVersion.versionCode
+        versionName BuildVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        staging { }
+        qa { }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Version.compose
+    }
+}
+
+dependencies {
+    implementation project(':base')
+    implementation project(':repo:tasks')
+    implementation project(':in_memory_cache')
+    implementation project(':framework:navigation')
+    implementation project(':framework:mvi')
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+    implementation Dependencies.cardView
+    implementation Dependencies.constraintLayout
+    implementation Dependencies.swipeRereshLayout
+    implementation Dependencies.androidMaterial
+    implementation Dependencies.appCompat
+    implementation Dependencies.epoxy
+    implementation Dependencies.timber
+    implementation com.dynatrace.tools.android.DynatracePlugin.agentDependency()
+    kapt Dependencies.epoxyAnnotation
+    implementation Dependencies.rxJava3
+    implementation Dependencies.koin_core
+    implementation Dependencies.koinAndroid
+    implementation Dependencies.koinScope
+    implementation Dependencies.threeTenBp
+    implementation Dependencies.rxAndroid3
+    implementation Dependencies.rxKotlin3
+
+    implementation Dependencies.compose
+    implementation Dependencies.composeMaterial
+    implementation Dependencies.activityCompose
+    implementation Dependencies.composeUITooling
+    implementation Dependencies.navigationCompose
+    androidTestImplementation Dependencies.junitAndroidXCompose
+
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.junitAndroidX
+}

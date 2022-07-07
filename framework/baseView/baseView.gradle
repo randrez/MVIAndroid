@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion BuildVersion.compileSdk
+
+    defaultConfig {
+        minSdkVersion BuildVersion.minSdk
+        targetSdkVersion BuildVersion.targetSdk
+        versionCode BuildVersion.versionCode
+        versionName BuildVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        staging { }
+        qa { }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        dataBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+    testImplementation Dependencies.junit
+    androidTestImplementation Dependencies.junitAndroidX
+
+    implementation Dependencies.appCompat
+    implementation Dependencies.constraintLayout
+
+    implementation Dependencies.rxJava3
+
+    implementation project(":framework:mvi")
+
+    implementation Dependencies.scandit
+    implementation Dependencies.scanditBarcode
+
+    implementation Dependencies.koinAndroid
+    implementation Dependencies.koinScope
+    implementation Dependencies.koinViewModel
+}

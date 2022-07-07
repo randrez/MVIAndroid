@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="account">Account</string>
+    <string name="tasks">Tasks</string>
+    <string name="logout">Log out</string>
+    <string name="email">Email</string>
+    <string name="name">Name</string>
+    <string name="preferences">Preferences</string>
+    <string name="support">Support</string>
+    <string name="icon_information">icon information</string>
+    <string name="capture_setting_info">The selected option will be the mode that opens when you first start capturing.</string>
+    <string name="unit_setting_info">The selected option will be the unit of measure displayed for length.</string>
+    <string name="give_feedback">Give feedback</string>
+    <string name="submit">Submit</string>
+    <string name="message_feedback">We\'d love to hear your feedback! Please provide as much detail as possible, so we can better understand what you\'re describing</string>
+    <string name="feedback_type">Feedback type*</string>
+    <string name="feedback_severity">Severity</string>
+    <string name="feedback_details">Details*</string>
+</resources>

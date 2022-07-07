@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dependencies.kotlin
+
+    implementation Dependencies.rxJava3
+    implementation Dependencies.rxAndroid3
+    implementation Dependencies.rxKotlin3
+}
+
+sourceCompatibility = "11"
+targetCompatibility = "11"

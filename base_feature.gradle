@@ -1,0 +1,99 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion BuildVersion.compileSdk
+    buildToolsVersion BuildVersion.buildTools
+
+    defaultConfig {
+        minSdkVersion BuildVersion.minSdk
+        targetSdkVersion BuildVersion.targetSdk
+        versionCode BuildVersion.versionCode
+        versionName BuildVersion.versionName
+        buildConfigField "String", "VERSION_NAME", "\"${BuildVersion.versionName}\""
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        staging { }
+        qa { }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Version.compose
+    }
+}
+
+kapt {
+    correctErrorTypes = true
+}
+
+dependencies {
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+
+    implementation Dependencies.rxJava3
+    implementation Dependencies.rxAndroid3
+    implementation Dependencies.rxKotlin3
+    implementation Dependencies.rxBinding
+
+    testImplementation Dependencies.junit
+    testImplementation Dependencies.koinTest
+    testImplementation Dependencies.mockK
+    androidTestImplementation Dependencies.junitAndroidX
+
+    implementation Dependencies.appCompat
+    implementation Dependencies.constraintLayout
+    implementation Dependencies.swipeRereshLayout
+    implementation Dependencies.navigation_fragment
+    implementation Dependencies.navigation_ui_ktx
+    implementation Dependencies.androidMaterial
+
+    implementation Dependencies.timber
+
+    implementation Dependencies.cardView
+
+    implementation Dependencies.koinAndroid
+    implementation Dependencies.koinScope
+    implementation Dependencies.koinViewModel
+
+    implementation Dependencies.compose
+    implementation Dependencies.composeMaterial
+    implementation Dependencies.activityCompose
+    implementation Dependencies.composeUITooling
+    implementation Dependencies.navigationCompose
+    implementation Dependencies.composeLivedata
+    implementation Dependencies.composeSwipeRefresh
+    androidTestImplementation Dependencies.junitAndroidXCompose
+
+    implementation Dependencies.epoxy
+    kapt Dependencies.epoxyAnnotation
+
+    implementation project(':base')
+    implementation project(':in_memory_cache')
+    implementation project(':ui:components')
+    implementation project(':framework:mvi')
+    implementation project(':framework:baseView')
+    implementation project(':framework:navigation')
+}

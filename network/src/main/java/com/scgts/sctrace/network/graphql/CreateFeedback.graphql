@@ -1,0 +1,11 @@
+mutation createFeedback($content: String!, $email: String!, $tag: [String]!) {
+    createFeedback(
+        input: {
+            content: $content,
+            customer_email: $email,
+            tags: $tag,
+        }
+    ) {
+        id
+    }
+}

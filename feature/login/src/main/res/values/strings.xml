@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log In to your account</string>
+    <string name="login_error_message">Invalid login credentials. Please try again.</string>
+    <string name="default_error_message">Something Went Wrong.</string>
+    <string name="enter_login_credentials">Enter your email and password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="okta_logo">Okta Logo</string>
+    <string name="okta_login">Log in with Okta</string>
+</resources>

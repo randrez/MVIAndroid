@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="discard">Discard</string>
+    <string name="confirm">Confirm</string>
+    <string name="submit">Submit</string>
+    <string name="submitted">Submitted</string>
+    <string name="mill_work_no">Mill work no.</string>
+    <string name="heat_no">Heat no.</string>
+    <string name="pipe_no">Pipe no.</string>
+    <string name="length">Length</string>
+    <string name="location">Location</string>
+    <string name="rack_location">Rack location</string>
+    <string name="condition">Condition</string>
+    <string name="no_of_tags">No. of tags</string>
+    <string name="outside_diameter">Outside diameter (OD)</string>
+    <string name="weight">Weight</string>
+    <string name="end_finish">End finish (EF)</string>
+    <string name="grade">Grade</string>
+    <string name="commodity">Commodity</string>
+    <string name="running_length">Running length</string>
+    <string name="delete">Delete</string>
+    <string name="are_you_sure">Are you sure?</string>
+    <string name="discard_asset">Discard asset</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="done">Done</string>
+    <string name="enter_tag_id">Enter tag ID</string>
+    <string name="associated_tags_num">Associated tags (%d)</string>
+    <string name="search_condition">Search Condition</string>
+    <string name="search_location">Search Location</string>
+    <string name="asset_not_in_order_warning">This asset’s product description is not expected in this order. Do you want to confirm or discard asset from order?</string>
+    <string name="delete_tag">Delete tag</string>
+    <string name="are_you_sure_you_want_to_delete_tag_x">Are you sure you want to delete tag %s</string>
+    <string name="tag_id">Tag ID</string>
+    <string name="contract_id">Contract ID</string>
+    <string name="shipment_no">Shipment no.</string>
+    <string name="new_asset">New asset</string>
+    <string name="edit_asset">Edit asset</string>
+</resources>

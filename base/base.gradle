@@ -1,0 +1,13 @@
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+sourceCompatibility = "8"
+targetCompatibility = "8"
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+    implementation Dependencies.rxJava3
+    implementation Dependencies.threeTenBp
+}

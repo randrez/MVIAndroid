@@ -1,0 +1,196 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+android {
+    compileSdkVersion BuildVersion.compileSdk
+
+    defaultConfig {
+        applicationId "com.scgts.sctrace"
+        minSdkVersion BuildVersion.minSdk
+        targetSdkVersion BuildVersion.targetSdk
+        versionCode BuildVersion.versionCode
+        versionName BuildVersion.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "SCANDIT_LICENSE_KEY", "\"${System.env.SCANDIT_KEY}\""
+        buildConfigField "String", "APP_CENTER_KEY", "\"${System.env.APP_CENTER_KEY}\""
+        buildConfigField "String", "OKTA_CLIENT_ID", "\"${System.env.OKTA_CLIENT_ID}\""
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../sctrace.keystore')
+            storePassword System.getenv('SCTRACE_STORE_PWD') ?: ""
+            keyAlias System.getenv('SCTRACE_KEY_ALIAS') ?: ""
+            keyPassword System.getenv('SCTRACE_KEY_PWD') ?: ""
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+
+        debug {
+            applicationIdSuffix ".debug"
+            debuggable true
+            buildConfigField "String", "GRAPH_QL_URL", '"https://test.sctrace.com/gateway"'
+            buildConfigField "String", "EXPRESS_BASE_URL", '"https://test.sctrace.com"'
+            buildConfigField "String", "OKTA_REDIRECT_URL", '"com.scgts.sctrace.auth.test:/login"'
+            buildConfigField "String", "OKTA_END_SESSION_REDIRECT_URL", '"com.scgts.sctrace.auth.test:/logout"'
+            buildConfigField "String", "OKTA_DISCOVERY_URL", '"https://scgts.oktapreview.com/oauth2/default"'
+            manifestPlaceholders = ["appAuthRedirectScheme": "com.scgts.sctrace.auth.test"]
+
+            resValue "string", "launcher_name", "SC Trace Debug"
+
+            try {
+                def localProperties = new Properties()
+                localProperties.load(new FileInputStream(rootProject.file("local.properties")))
+                buildConfigField "String", "SCANDIT_LICENSE_KEY", localProperties.getProperty('SCANDIT_KEY')
+                buildConfigField "String", "APP_CENTER_KEY", localProperties.getProperty('APP_CENTER_KEY')
+                buildConfigField "String", "OKTA_CLIENT_ID", localProperties.getProperty('OKTA_CLIENT_ID')
+            } catch (Exception ignored) {
+            }
+        }
+
+        qa {
+            applicationIdSuffix ".qa"
+            debuggable true
+            buildConfigField "String", "GRAPH_QL_URL", '"https://test.sctrace.com/gateway"'
+            buildConfigField "String", "EXPRESS_BASE_URL", '"https://test.sctrace.com"'
+            buildConfigField "String", "OKTA_REDIRECT_URL", '"com.scgts.sctrace.auth.test:/login"'
+            buildConfigField "String", "OKTA_END_SESSION_REDIRECT_URL", '"com.scgts.sctrace.auth.test:/logout"'
+            buildConfigField "String", "OKTA_DISCOVERY_URL", '"https://scgts.oktapreview.com/oauth2/default"'
+            manifestPlaceholders = ["appAuthRedirectScheme": "com.scgts.sctrace.auth.test"]
+
+            signingConfig signingConfigs.release
+            resValue "string", "launcher_name", "SC Trace QA"
+        }
+
+        staging {
+            applicationIdSuffix ".staging"
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "GRAPH_QL_URL", '"https://stage.sctrace.com/gateway"'
+            buildConfigField "String", "EXPRESS_BASE_URL", '"https://stage.sctrace.com"'
+            buildConfigField "String", "OKTA_REDIRECT_URL", '"com.scgts.sctrace.auth.staging:/login"'
+            buildConfigField "String", "OKTA_END_SESSION_REDIRECT_URL", '"com.scgts.sctrace.auth.staging:/logout"'
+            buildConfigField "String", "OKTA_DISCOVERY_URL", '"https://scgts.oktapreview.com/oauth2/default"'
+            manifestPlaceholders = ["appAuthRedirectScheme": "com.scgts.sctrace.auth.staging"]
+
+            signingConfig signingConfigs.release
+
+            resValue "string", "launcher_name", "SC Trace Staging"
+        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "GRAPH_QL_URL", '"https://sctrace.com/gateway"'
+            buildConfigField "String", "EXPRESS_BASE_URL", '"https://sctrace.com"'
+            buildConfigField "String", "OKTA_REDIRECT_URL", '"com.scgts.sctrace.auth:/login"'
+            buildConfigField "String", "OKTA_END_SESSION_REDIRECT_URL", '"com.scgts.sctrace.auth:/logout"'
+            buildConfigField "String", "OKTA_DISCOVERY_URL", '"https://scgts.okta.com/oauth2/default"'
+            manifestPlaceholders = ["appAuthRedirectScheme": "com.scgts.sctrace.auth"]
+
+            signingConfig signingConfigs.release
+
+            resValue "string", "launcher_name", "SC Trace"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_11.toString()
+    }
+
+    buildFeatures {
+        viewBinding true
+        compose true
+    }
+
+    composeOptions {
+        kotlinCompilerExtensionVersion Version.compose
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.aar"])
+    implementation Dependencies.kotlin
+    implementation Dependencies.ktxCore
+
+    testImplementation Dependencies.junit
+    testImplementation Dependencies.koinTest
+    testImplementation Dependencies.mockK
+    androidTestImplementation Dependencies.junitAndroidX
+
+    implementation Dependencies.appCompat
+    implementation Dependencies.constraintLayout
+    implementation Dependencies.navigation_fragment
+    implementation Dependencies.navigation_ui_ktx
+
+    implementation Dependencies.timber
+    implementation Dependencies.koin_core
+    implementation Dependencies.koinViewModel
+
+    implementation Dependencies.rxJava3
+    implementation Dependencies.rxAndroid3
+    implementation Dependencies.rxKotlin3
+
+    implementation Dependencies.threeTenBp
+    implementation Dependencies.epoxy
+    implementation Dependencies.appCenter
+
+    implementation Dependencies.compose
+    implementation Dependencies.composeMaterial
+    implementation Dependencies.activityCompose
+    implementation Dependencies.composeUITooling
+    implementation Dependencies.navigationCompose
+    implementation Dependencies.composeLivedata
+    implementation Dependencies.composeSwipeRefresh
+    androidTestImplementation Dependencies.junitAndroidXCompose
+
+    implementation Dependencies.okta
+
+    implementation project(':auth')
+    implementation project(':base')
+    implementation project(':database')
+    implementation project(':network')
+    implementation project(':in_memory_cache')
+
+    implementation project(':framework:mvi')
+    implementation project(':framework:baseView')
+    implementation project(':framework:navigation')
+
+    implementation project(':ui:components')
+
+    implementation project(':feature:login')
+    implementation project(':feature:landing')
+    implementation project(':feature:capture')
+    implementation project(':feature:assets')
+    implementation project(':feature:task_summary')
+    implementation project(':feature:ad_hoc_action')
+    implementation project(':feature:see_details')
+    implementation project(':feature:settings')
+    implementation project(':feature:tablet')
+    implementation project(':feature:rack_transfer')
+
+    implementation project(':repo:user')
+    implementation project(':repo:login')
+    implementation project(':repo:tasks')
+    implementation project(':repo:queue')
+
+    implementation project(':datasource:tasks')
+    implementation project(':datasource:login')
+    implementation project(':datasource:queue')
+    implementation project(':datasource:user')
+
+    debugImplementation 'com.facebook.flipper:flipper:0.79.1'
+    debugImplementation 'com.facebook.soloader:soloader:0.10.1'
+
+    //debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.7'
+}
